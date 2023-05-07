@@ -94,5 +94,11 @@ namespace TWTApi
             openapiClient x = new openapiClient(GetClient());
             return await x.GetLikesOfTweet(tweetId, SetHeaders, 100, pageToken, CancellationToken.None);
         }
+
+        public async Task<Get2TweetsSearchRecentResponse> GetCommentsOfTweet(string tweetId, string? pageToken = null)
+        {
+            openapiClient x = new openapiClient(GetClient());
+            return await x.GetCommentsOfTweet(string.Format("conversation_id:{0}", tweetId), SetHeaders, 100, pageToken, CancellationToken.None);
+        }
     }
 }
